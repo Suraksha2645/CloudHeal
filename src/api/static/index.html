@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudHeal | Self-Healing Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="app-container">
+
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">C</div>
+                <div>
+                    <h2>CloudHeal</h2>
+                    <span>Self-Healing Platform</span>
+                </div>
+            </div>
+
+            <nav>
+                <a href="#overview" class="active">Overview</a>
+                <a href="#services">Services</a>
+                <a href="#resources">Resources</a>
+                <a href="#anomalies">Anomaly Testing</a>
+                <a href="#healing">Self-Healing</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <span class="status-dot"></span>
+                Kubernetes Monitoring
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div>
+                    <h1>CloudHeal Dashboard</h1>
+                    <p>Monitor, detect and recover cloud-native services.</p>
+                </div>
+                <div class="topbar-actions">
+                    <span id="connection-status">Connecting...</span>
+                    <button id="refresh-button" type="button">Refresh</button>
+                </div>
+            </header>
+
+            <section id="overview" class="dashboard-section">
+                <div class="section-heading">
+                    <h2>System Overview</h2>
+                    <span id="last-updated">Waiting for data...</span>
+                </div>
+
+                <div class="stats-grid">
+                    <article class="stat-card">
+                        <p>Total Pods</p>
+                        <h2 id="total-pods">--</h2>
+                    </article>
+                    <article class="stat-card">
+                        <p>Running Pods</p>
+                        <h2 id="running-pods">--</h2>
+                    </article>
+                    <article class="stat-card">
+                        <p>Unhealthy Pods</p>
+                        <h2 id="unhealthy-pods">--</h2>
+                    </article>
+                    <article class="stat-card">
+                        <p>Total Restarts</p>
+                        <h2 id="total-restarts">--</h2>
+                    </article>
+                </div>
+            </section>
+
+            <section id="services" class="dashboard-section">
+                <div class="section-heading">
+                    <h2>Microservices</h2>
+                    <span>Default namespace</span>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Pod Name</th>
+                                <th>Status</th>
+                                <th>Ready</th>
+                                <th>Restarts</th>
+                            </tr>
+                        </thead>
+                        <tbody id="pods-table">
+                            <tr><td colspan="4">Loading pods...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="resources" class="dashboard-section">
+                <div class="section-heading">
+                    <h2>Resource Monitoring</h2>
+                    <span>Live Kubernetes metrics</span>
+                </div>
+
+                <div class="stats-grid resource-summary">
+                    <article class="stat-card">
+                        <p>Total CPU Usage</p>
+                        <h2 id="total-cpu">--</h2>
+                    </article>
+                    <article class="stat-card">
+                        <p>Total Memory Usage</p>
+                        <h2 id="total-memory">--</h2>
+                    </article>
+                    <article class="stat-card">
+                        <p>Pods with Metrics</p>
+                        <h2 id="metrics-pod-count">--</h2>
+                    </article>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Pod Name</th>
+                                <th>CPU</th>
+                                <th>Memory</th>
+                            </tr>
+                        </thead>
+                        <tbody id="metrics-table">
+                            <tr><td colspan="3">Loading metrics...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="anomalies" class="dashboard-section">
+                <div class="section-heading">
+                    <h2>Anomaly Testing</h2>
+                    <span>Controlled test environment</span>
+                </div>
+
+                <div class="test-panel">
+                    <div>
+                        <h3>CPU Stress Test</h3>
+                        <p>
+                            Starts a separate test pod that creates controlled CPU
+                            load. It does not intentionally modify Online Boutique
+                            application pods.
+                        </p>
+                        <p id="cpu-test-status" class="test-status">
+                            Checking test status...
+                        </p>
+                    </div>
+
+                    <div class="test-buttons">
+                        <button id="start-cpu-test" type="button">
+                            Start CPU Test
+                        </button>
+                        <button id="stop-cpu-test" type="button" disabled>
+                            Stop CPU Test
+                        </button>
+                    </div>
+                </div>
+
+                <p class="notice">
+                    Note: Starting a stress test creates additional CPU load on
+                    your local Kubernetes environment. Stop the test when finished.
+                    Creating a test does not itself mean an anomaly has been detected.
+                </p>
+            </section>
+
+            <section id="healing" class="dashboard-section">
+                <div class="section-heading">
+                    <h2>Self-Healing</h2>
+                    <span>Recovery integration</span>
+                </div>
+
+                <div class="test-panel">
+                    <div>
+                        <h3>Automated Recovery</h3>
+                        <p>
+                            CloudHeal's recovery workflow is being integrated.
+                            Recovery actions and verification will be displayed
+                            here when connected.
+                        </p>
+                        <span class="pending-label">Integration in progress</span>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="dashboard-footer">
+                CloudHeal — A Self-Healing Cloud-Native Microservices
+            </footer>
+        </main>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

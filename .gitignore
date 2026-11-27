@@ -1,0 +1,45 @@
+.venv/
+.venv-linux/
+__pycache__/
+*.pyc
+node_modules/
+frontend/node_modules/
+frontend/dist/
+.vscode/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+kubeconfig
+data/raw/
+*.log
+
+# Exclude inspected ZIP copies and datasets anywhere
+zip_inspection/
+**/data/raw/
+
+
+# Temporary runtime files
+.cloudheal/
+
+# Dataset copies and transfer folders
+colab_transfer/
+cloudheal_source_review.zip
+
+
+# Runtime data and generated datasets
+data/live/
+data/processed/
+
+# Temporary and backup files
+*.pid
+*.sqlite3
+*.jsonl
+*.bak
+*.bak2
+*.backup
+
+# Local diagnostic output
+quality_scan_output.txt
+
